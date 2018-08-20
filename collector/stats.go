@@ -10,6 +10,19 @@ type stats struct {
 	Health    string   `json:"health"`
 	StartTime int64    `json:"start_time"`
 	Topics    []*topic `json:"topics"`
+	Memory    *memory  `json:"memory"`
+}
+
+type memory struct {
+	HeapObject        int `json:"heap_objects"`
+	HeapIdleBytes     int `json:"heap_idle_bytes"`
+	HeapInUseBytes    int `json:"heap_in_use_bytes"`
+	HeapReleasedBytes int `json:"heap_released_bytes"`
+	GCPauseUsec100    int `json:"gc_pause_usec_100"`
+	GCPauseUsec99     int `json:"gc_pause_usec_99"`
+	GCPauseUsec95     int `json:"gc_pause_usec_95"`
+	NextGCBytes       int `json:"next_gc_bytes"`
+	GCTotalRuns       int `json:"gc_total_runs"`
 }
 
 // see https://github.com/nsqio/nsq/blob/master/nsqd/stats.go
